@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 		horizontalInput = Input.GetAxis("Horizontal");
-		Vector2 playerMovementVector = new Vector2(horizontalInput * playerSpeed, playerRB.velocity.y);
-		playerRB.AddForce(playerMovementVector * Time.deltaTime);
+		playerRB.AddForce(new Vector2(horizontalInput * playerSpeed * Time.deltaTime, playerRB.velocity.y));
     }
 }
