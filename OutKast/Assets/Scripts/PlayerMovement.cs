@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	Rigidbody2D playerRB;
-	float horizontalInput;
-	public float playerSpeed;
+	private Rigidbody2D playerRB;
+	private float horizontalInput;
+	private float playerSpeed;
 
     void Start()
     {
@@ -15,11 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        PlayerMovement;
 		horizontalInput = Input.GetAxis("Horizontal");
 		playerRB.AddForce(new Vector2(horizontalInput * playerSpeed * Time.deltaTime, playerRB.velocity.y));
     }
-    
-
-   
 }
