@@ -17,5 +17,9 @@ public class PlayerMovement : MonoBehaviour
     {
 		horizontalInput = Input.GetAxis("Horizontal");
 		playerRB.AddForce(new Vector2(horizontalInput * playerSpeed * Time.deltaTime, playerRB.velocity.y));
+<<<<<<< HEAD
     }
+=======
+    }   
+>>>>>>> adf84c0863db31e279f481b3370adf592b98bb14
 }
