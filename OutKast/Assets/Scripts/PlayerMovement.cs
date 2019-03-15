@@ -10,16 +10,19 @@ public class PlayerMovement : MonoBehaviour
     [Range(1,10)]public float walkingSpeed;
     [Range(1,10)]public float runningSpeed;
     private bool isRunning = false;
+    float xScale;
 
-	void Start()
+    void Start()
 	{
 		playerRB = GetComponent<Rigidbody2D>();
-	}
+        xScale = gameObject.transform.localScale.x;
+    }
 
 	void Update()
 	{
 		horizontalInput = Input.GetAxisRaw("Horizontal");
-		playerRB.AddForce(new Vector2(horizontalInput * horizontalForce * Time.deltaTime, playerRB.velocity.y));
+        Flip(horizontalInput);
+        playerRB.AddForce(new Vector2(horizontalInput * horizontalForce * Time.deltaTime, playerRB.velocity.y));
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -50,5 +53,18 @@ public class PlayerMovement : MonoBehaviour
         float cappedRunningVelocity = Mathf.Min(Mathf.Abs(playerRB.velocity.x), runningSpeed) * Mathf.Sign(playerRB.velocity.x);
         float currentYVelocity = playerRB.velocity.y;
         playerRB.velocity = new Vector3(cappedRunningVelocity, currentYVelocity, 0);
+    }
+
+    void Flip(float input)
+    {
+        if (input < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-xScale, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+        }
+        if (input > 0)
+        {
+            gameObject.transform.localScale = new Vector3(xScale, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+        }
+
     }
 }
