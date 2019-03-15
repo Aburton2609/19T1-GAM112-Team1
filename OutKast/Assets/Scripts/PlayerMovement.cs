@@ -6,7 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
 	private Rigidbody2D playerRB;
 	private float horizontalInput;
-	private float playerSpeed;
+	private float horizontalForce = 1000;
+    [Range(1,10)]public float walkingSpeed;
+    [Range(1,10)]public float runningSpeed;
+    private bool isRunning = false;
 
 	void Start()
 	{
@@ -15,7 +18,37 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-		horizontalInput = Input.GetAxis("Horizontal");
-		playerRB.AddForce(new Vector2(horizontalInput * playerSpeed * Time.deltaTime, playerRB.velocity.y));
-	}
+		horizontalInput = Input.GetAxisRaw("Horizontal");
+		playerRB.AddForce(new Vector2(horizontalInput * horizontalForce * Time.deltaTime, playerRB.velocity.y));
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isRunning = false;
+        }
+        if (isRunning)
+        {
+            RunningVelocityCap();
+        }
+        else if (isRunning == false)
+        {
+            WalkingVelocityCap();
+        }
+    }
+
+    void WalkingVelocityCap()
+    {
+        float cappedWalkingVelocity = Mathf.Min(Mathf.Abs(playerRB.velocity.x), walkingSpeed) * Mathf.Sign(playerRB.velocity.x);
+        float currentYVelocity = playerRB.velocity.y;
+        playerRB.velocity = new Vector3(cappedWalkingVelocity, currentYVelocity, 0);
+    }
+    void RunningVelocityCap()
+    {
+        float cappedRunningVelocity = Mathf.Min(Mathf.Abs(playerRB.velocity.x), runningSpeed) * Mathf.Sign(playerRB.velocity.x);
+        float currentYVelocity = playerRB.velocity.y;
+        playerRB.velocity = new Vector3(cappedRunningVelocity, currentYVelocity, 0);
+    }
 }
