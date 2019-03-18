@@ -492,7 +492,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   grounded: 0
-  jumpForce: 400
+  jumpForce: 300
+  jumpsRemaining: 1
+  jumpingSpeed: 6
 --- !u!1 &829968669
 GameObject:
   m_ObjectHideFlags: 0
