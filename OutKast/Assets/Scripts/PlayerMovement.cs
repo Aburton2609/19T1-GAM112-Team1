@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(1,10)]public float runningSpeed;
     private bool isRunning = false;
     float xScale;
+    public Vector2 currentSpeeds;
 
     void Start()
 	{
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             WalkingVelocityCap();
         }
+        currentSpeeds = playerRB.velocity;
     }
 
     void WalkingVelocityCap()

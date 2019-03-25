@@ -11,7 +11,9 @@ public class PlayerJump : MonoBehaviour
     public float jumpForce = 100;
     public int jumpsRemaining = 1;
     public float jumpingSpeed = 1.5f;
-   
+    public float timeBtwJump = 0.3f;
+    float timer = 0;
+
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
@@ -31,10 +33,11 @@ public class PlayerJump : MonoBehaviour
         {
             Jump();
             hasJumped = false;
+            timer = timeBtwJump;
         }
-        else if (grounded == false && hasJumped && jumpsRemaining > 0)
+        else if (grounded == false && hasJumped && jumpsRemaining > 0 && timer <= 0)
         {
-            Jump();
+            Jump();           
             hasJumped = false;
             jumpsRemaining--;
         }
@@ -42,7 +45,10 @@ public class PlayerJump : MonoBehaviour
         {
             jumpsRemaining = 1;
         }
-
+        if (grounded == false && timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -53,8 +59,8 @@ public class PlayerJump : MonoBehaviour
 
     void Jump()
     {
-        playerRB.AddForce(Vector2.up * jumpForce);
-        Debug.Log("is using jump method. force: " + playerRB.velocity.y);
+        //playerRB.AddForce(Vector2.up * jumpForce);
+        playerRB.velocity = new Vector2(playerRB.velocity.x, jumpingSpeed);
     }
 
 
