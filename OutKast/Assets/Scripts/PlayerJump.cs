@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
     {        
         if (Input.GetKeyDown(KeyCode.Space))
             hasJumped = true;
-        JumpingVelocityCap();
+        //JumpingVelocityCap();
     }
 
     void FixedUpdate()
@@ -64,10 +64,10 @@ public class PlayerJump : MonoBehaviour
     }
 
 
-    void JumpingVelocityCap()
-    {
-        float currentXVelocity = playerRB.velocity.x;
-        float cappedJumpingVelocity = Mathf.Min(Mathf.Abs(playerRB.velocity.y), jumpingSpeed) * Mathf.Sign(playerRB.velocity.y);
-        playerRB.velocity = new Vector2(currentXVelocity, cappedJumpingVelocity);
-    }
+    //void JumpingVelocityCap()
+    //{
+    //    float currentXVelocity = playerRB.velocity.x;
+    //    float cappedJumpingVelocity = Mathf.Min(Mathf.Abs(playerRB.velocity.y), jumpingSpeed) * Mathf.Sign(playerRB.velocity.y);
+    //    playerRB.velocity = new Vector2(currentXVelocity, cappedJumpingVelocity);
+    //}
 }

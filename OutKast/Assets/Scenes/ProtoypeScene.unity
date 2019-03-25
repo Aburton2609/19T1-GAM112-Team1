@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTimer: 50
   walkingDecayMuliplier: 2
-  RunningDecayMultiplier: 6
+  RunningDecayMultiplier: 4
   startingSpriteSizeMultipliedByTimer: 1
   timer: 0
   playerPointLight: {fileID: 907417590}
@@ -478,8 +478,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9bb513846fb244ea0d42b220027a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 4.5
+  walkingSpeed: 6
   runningSpeed: 9
+  currentSpeeds: {x: 0, y: 0}
 --- !u!114 &646444412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,12 +509,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646444406}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dd29f915166a284eaed570334d2cad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingGravityModifier: 2.5
+  fallingGravityModifier: 1.5
 --- !u!1001 &666321044
 PrefabInstance:
   m_ObjectHideFlags: 0
