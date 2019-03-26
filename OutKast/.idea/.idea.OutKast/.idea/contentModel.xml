@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Tony\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Tony\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_OutKast.1527232568.00" t="ExcludeRecursive" />
+    <e p="D:\Projects\19T1-GAM112-Team1\OutKast" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="BetterJump.cs" t="Include" />
+          <e p="GameOverLogic.cs" t="Include" />
+          <e p="LightTimer.cs" t="Include" />
+          <e p="OrbsOfLight.cs" t="Include" />
+          <e p="PlayerJump.cs" t="Include" />
+          <e p="PlayerMovement.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="OutKast.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
