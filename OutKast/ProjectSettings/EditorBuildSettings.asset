@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ProtoypeScene.unity
     guid: b65b76f7188171f40b812aded1c13582
+  - enabled: 1
+    path: Assets/Scenes/LevelOneDraft.unity
+    guid: 31964cac784cd694a9f33d2a8846076b
   m_configObjects: {}
