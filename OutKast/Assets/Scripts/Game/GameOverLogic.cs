@@ -24,8 +24,13 @@ public class GameOverLogic : MonoBehaviour
             lightTimer.enabled = false;
             if (Input.GetKeyDown(KeyCode.G))
             {
-                SceneManager.LoadScene(currentScene);
+                RestartLevel();
             }
         }
+    }
+
+    public void RestartLevel ()
+    {
+        SceneManager.LoadScene(currentScene);
     }
 }

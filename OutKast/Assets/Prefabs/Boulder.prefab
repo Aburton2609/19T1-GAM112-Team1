@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8051070665036366533}
   - component: {fileID: 8051070665036366532}
   - component: {fileID: 8051070665036366535}
+  - component: {fileID: 2299613974128479693}
   m_Layer: 8
   m_Name: Boulder
   m_TagString: Untagged
@@ -106,3 +107,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2299613974128479693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8051070665036366534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8364f592e8b5940b79f53415e1c23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
