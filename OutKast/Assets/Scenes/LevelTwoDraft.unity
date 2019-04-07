@@ -1968,6 +1968,7 @@ GameObject:
   - component: {fileID: 646444409}
   - component: {fileID: 646444414}
   - component: {fileID: 646444415}
+  - component: {fileID: 646444413}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -2114,6 +2115,19 @@ MonoBehaviour:
   jumpsRemaining: 1
   jumpingSpeed: 6
   timeBtwJump: 0.5
+--- !u!114 &646444413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646444406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3099260db8e69cf49999afcdc20a2ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keysHolding: 0
 --- !u!95 &646444414
 Animator:
   serializedVersion: 3

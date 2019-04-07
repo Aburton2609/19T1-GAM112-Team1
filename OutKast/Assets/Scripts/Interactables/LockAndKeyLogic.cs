@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LockAndKeyLogic : MonoBehaviour
-{    
-    public bool haskey;
+{
+    KeyPickUpLogic keyPickUpLogic;
     public GameObject lockedDoor;
 
     void Start()
     {
         lockedDoor.gameObject.SetActive(true);
-        haskey = false;
+        keyPickUpLogic = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyPickUpLogic>();
     }
 
     void OnTriggerEnter2D (Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag == "Player" && haskey == true)
+        if (collider2D.gameObject.tag == "Player" && keyPickUpLogic.keysHolding > 0)
         {
             lockedDoor.gameObject.SetActive(false);
+            keyPickUpLogic.UseKey();
         }
     }
 }

@@ -1117,18 +1117,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4fb8a41b86a207478307a6c390528c5, type: 3}
---- !u!114 &550542370 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5645189489460425860, guid: f961d7860ff370b46ad2e9fda0cfc1c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 5645189488937150630}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d9148d930c5224d82f3d948a76ee52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &564556453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7329221035142924875, guid: b4fb8a41b86a207478307a6c390528c5,
@@ -1325,6 +1313,7 @@ GameObject:
   - component: {fileID: 646444413}
   - component: {fileID: 646444414}
   - component: {fileID: 646444415}
+  - component: {fileID: 646444416}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1516,6 +1505,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2aca6edafb5b434fb7ab41ad79c19a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &646444416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646444406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3099260db8e69cf49999afcdc20a2ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keysHolding: 0
 --- !u!1 &672310255
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,11 +4210,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5401189715728600922, guid: de7c0d929f8140b49b2a15d0436210de,
-        type: 3}
-      propertyPath: lockAndKeyLogic
-      value: 
-      objectReference: {fileID: 550542370}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de7c0d929f8140b49b2a15d0436210de, type: 3}
 --- !u!1001 &5645189488937150630
