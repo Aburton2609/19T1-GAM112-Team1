@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class KeyPickUpLogic : MonoBehaviour
 {
-    public LockAndKeyLogic lockAndKeyLogic;
+    [HideInInspector]public int keysHolding = 0;
 
     void OnTriggerEnter2D (Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag == "Player")
+        if (collider2D.gameObject.tag == "Key")
         {
-            lockAndKeyLogic.haskey = true;
-            gameObject.SetActive(false);
+            keysHolding++;
+            collider2D.gameObject.SetActive(false);
         }
+    }
+
+    public void UseKey ()
+    {
+        keysHolding--;
     }
 }

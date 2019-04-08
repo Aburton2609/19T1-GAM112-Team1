@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 	private Rigidbody2D playerRB;
+    PlayerJump playerJump;
 	private float horizontalInput;
 	private float horizontalForce = 1000;
     [Range(1,10)]public float walkingSpeed;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
 	{
 		playerRB = GetComponent<Rigidbody2D>();
+        playerJump = GetComponent<PlayerJump>();
         xScale = gameObject.transform.localScale.x;
     }
 
@@ -25,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         Flip(horizontalInput);
         playerRB.AddForce(new Vector2(horizontalInput * horizontalForce * Time.deltaTime, playerRB.velocity.y));
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && playerJump.grounded == true)
         {
             isRunning = true;
         }

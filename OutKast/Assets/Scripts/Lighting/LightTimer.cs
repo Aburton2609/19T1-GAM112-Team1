@@ -11,10 +11,12 @@ public class LightTimer : MonoBehaviour
     [HideInInspector] public float timer;
     public Light playerPointLight;
     public float startingLightRangeMultipliedByTimer = 2;
+    bool inSafeArea;
 
     void Start()
     {
-        timer = startTimer;
+        inSafeArea = false;
+        ResetLightTimer();
     }
 
     void Update()
@@ -24,17 +26,37 @@ public class LightTimer : MonoBehaviour
         bool isWalkingLeft = Input.GetKey(KeyCode.A);
         bool isWalkingRight = Input.GetKey(KeyCode.D);
         bool isRunning = (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)));
-        if (isWalkingLeft || isWalkingRight)
+
+        if (inSafeArea == false)
         {
-            timer -= (Time.deltaTime * walkingDecayMuliplier);
+            if (isWalkingLeft || isWalkingRight)
+            {
+                timer -= (Time.deltaTime * walkingDecayMuliplier);
+            }
+            else if (isRunning)
+            {
+                timer -= (Time.deltaTime * RunningDecayMultiplier);
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
         }
-        if (isRunning)
-        {
-            timer -= (Time.deltaTime * RunningDecayMultiplier);
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
+    }
+   
+
+    public void AddToTimer(float timeToAdd)
+    {
+        timer += timeToAdd;
+    }
+
+    public void ChangeSafeAreaBoolean (bool value)
+    {
+        inSafeArea = value;
+    }
+
+    public void ResetLightTimer()
+    {
+        timer = startTimer;
     }
 }
