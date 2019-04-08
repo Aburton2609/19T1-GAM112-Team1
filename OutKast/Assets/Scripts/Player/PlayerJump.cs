@@ -58,6 +58,7 @@ public class PlayerJump : MonoBehaviour
 
     void Jump()
     {
-        playerRB.velocity = new Vector2(playerRB.velocity.x, jumpingSpeed);
+        playerRB.velocity = new Vector2(playerRB.velocity.x, jumpingSpeed);        
     }
+   
 }
