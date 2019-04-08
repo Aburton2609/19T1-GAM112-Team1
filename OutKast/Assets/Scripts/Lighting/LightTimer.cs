@@ -10,7 +10,7 @@ public class LightTimer : MonoBehaviour
     public float startingSpriteSizeMultipliedByTimer = 1;
     [HideInInspector] public float timer;
     public Light playerPointLight;
-    public float startingLightRangeMultipliedByTimer = 2;
+    public float startingLightRangeMultipliedByTimer = 1;
     bool inSafeArea;
 
     void Start()

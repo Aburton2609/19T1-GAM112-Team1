@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Light
   - Key
+  - KeyImage
   layers:
   - Default
   - TransparentFX
