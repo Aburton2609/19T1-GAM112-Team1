@@ -6937,6 +6937,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2586629519912459424, guid: 8fced185fc2c8364bb97a127e709b0d0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 998263391}
+    - target: {fileID: 2586629519912459424, guid: 8fced185fc2c8364bb97a127e709b0d0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586629520248364589, guid: 8fced185fc2c8364bb97a127e709b0d0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 998263391}
+    - target: {fileID: 2586629520248364589, guid: 8fced185fc2c8364bb97a127e709b0d0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMainMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fced185fc2c8364bb97a127e709b0d0, type: 3}
 --- !u!223 &2077348523 stripped
