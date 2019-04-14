@@ -22,9 +22,9 @@ TagManager:
   - Player
   - Background
   - Light
-  - 
-  - 
-  - 
+  - light sources
+  - ambient light
+  - light obstacles
   - 
   - 
   - 
