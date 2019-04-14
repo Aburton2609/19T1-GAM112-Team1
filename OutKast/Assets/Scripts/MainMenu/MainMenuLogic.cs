@@ -10,11 +10,17 @@ public class MainMenuLogic : MonoBehaviour
     public Canvas playQuitCanvas;
     public Canvas levelSelectionCanvas;
     public Button[] levelSelectionsButtons;
+    public Canvas loadingScreenCanvas;
+    public Text loadingText;
+    public Image loadingBar;
 
     private void Start()
     {
         playQuitCanvas.gameObject.SetActive(true);
         levelSelectionCanvas.gameObject.SetActive(false);
+        loadingScreenCanvas.gameObject.SetActive(false);
+        loadingText.text = "";
+        loadingBar.fillAmount = 0;
 
         if (PlayerPrefs.GetString("LevelThreeCompletionStatus") == "Complete")
         {
@@ -50,14 +56,14 @@ public class MainMenuLogic : MonoBehaviour
 
     public void LoadLevelOne()
     {
-        SceneManager.LoadScene(sceneNames[0]);       
+        StartCoroutine(LoadLevel(1));
     }
 
     public void LoadLevelTwo()
     {
         if (PlayerPrefs.GetString("LevelOneCompletionStatus") == "Complete")
         {
-            SceneManager.LoadScene(sceneNames[1]);
+            StartCoroutine(LoadLevel(2));
         }             
     }
 
@@ -65,7 +71,7 @@ public class MainMenuLogic : MonoBehaviour
     {
         if (PlayerPrefs.GetString("LevelTwoCompletionStatus") == "Complete")
         {
-            SceneManager.LoadScene(sceneNames[2]);
+            StartCoroutine(LoadLevel(3));
         }
     }
 
@@ -78,5 +84,17 @@ public class MainMenuLogic : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();            
+    }
+
+    IEnumerator LoadLevel (int levelNumber)
+    {
+        loadingScreenCanvas.gameObject.SetActive(true);
+        loadingText.text = "Loading Level " + levelNumber;
+        while (loadingBar.fillAmount < 1)
+        {
+            loadingBar.fillAmount += 0.01f;
+            yield return null;
+        }
+        SceneManager.LoadScene(sceneNames[levelNumber - 1]);
     }
 }
