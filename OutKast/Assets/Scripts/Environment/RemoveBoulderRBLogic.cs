@@ -12,7 +12,7 @@ public class RemoveBoulderRBLogic : MonoBehaviour
     }
    void OnCollisionEnter2D (Collision2D collision2D)
     {
-        if (collision2D.gameObject.tag == "Player")
+        if (collision2D.gameObject.tag == "Player" && gameObject.GetComponent<Rigidbody2D>())
         {
             gameOverLogic.RestartLevel();
         }

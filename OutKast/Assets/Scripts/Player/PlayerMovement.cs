@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
 	void Update()
-	{
-		horizontalInput = Input.GetAxisRaw("Horizontal");
+	{        
+        horizontalInput = Input.GetAxisRaw("Horizontal");        
         Flip(horizontalInput);
         playerRB.AddForce(new Vector2(horizontalInput * horizontalForce * Time.deltaTime, playerRB.velocity.y));
 
@@ -69,6 +69,5 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(xScale, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
         }
-
     }
 }

@@ -21,7 +21,7 @@ public class PlayerJump : MonoBehaviour
 
     void Update ()
     {        
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpsRemaining > 0)
             hasJumped = true;
     }
 
