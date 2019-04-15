@@ -119,3 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f508e452e1911fb49ad5d6ca1a3f138b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScreenCanvas: {fileID: 0}
+  loadingText: {fileID: 0}
+  loadingBar: {fileID: 0}
+  nextSceneName: 
+  playerPrefsKeyName: 
+  loadingDisplayString: 
