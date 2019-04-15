@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    void Start()
-    {
-    }
+	public AudioClip[] audioClips;
+	private AudioSource soundSource;
 
-    void Update()
-    {
-    }
+	void Start()
+	{
+	}
+
+	void Update()
+	{
+	}
 }
