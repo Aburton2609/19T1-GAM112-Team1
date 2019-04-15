@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7227722991278052945}
   - component: {fileID: 7227722991278052944}
   - component: {fileID: 7227722991278052947}
+  - component: {fileID: 1821340793}
   m_Layer: 8
   m_Name: Lift
   m_TagString: Lift
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20530d78705386c4f8f2ed7d5b7a5292, type: 2}
+  - {fileID: 2100000, guid: 1cff8925b4fa3fb4b83041be7a933696, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7227722991278052944
 BoxCollider2D:
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -127,6 +128,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   speed: 5
+--- !u!251 &1821340793
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227722991278052951}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &7227722992401746472
 GameObject:
   m_ObjectHideFlags: 0
