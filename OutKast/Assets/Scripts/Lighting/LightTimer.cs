@@ -10,6 +10,9 @@ public class LightTimer : MonoBehaviour
     public float startingSpriteSizeMultipliedByTimer = 1;
     [HideInInspector] public float timer;
     bool inSafeArea;
+    public Transform wallCheckTransform;
+    public LayerMask whatIsGround;
+    bool notAbleToWalk;
 
     void Start()
     {
@@ -18,19 +21,20 @@ public class LightTimer : MonoBehaviour
     }
 
     void Update()
-    {        
+    {
+        notAbleToWalk = Physics2D.OverlapCircle(wallCheckTransform.position,0.15f, whatIsGround);
         gameObject.transform.localScale = new Vector3(timer * startingSpriteSizeMultipliedByTimer, timer * startingSpriteSizeMultipliedByTimer, 0);
-        bool isWalkingLeft = Input.GetKey(KeyCode.A);
-        bool isWalkingRight = Input.GetKey(KeyCode.D);
-        bool isRunning = (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)));
+        bool isWalkingLeft = Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftArrow);
+        bool isWalkingRight = Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.RightArrow);
+        bool isRunning = (Input.GetKey(KeyCode.LeftShift) && (isWalkingLeft || isWalkingRight));
 
         if (inSafeArea == false)
         {
-            if (isWalkingLeft || isWalkingRight)
+            if ((isWalkingLeft || isWalkingRight) && notAbleToWalk == false)
             {
                 timer -= (Time.deltaTime * walkingDecayMuliplier);
             }
-            else if (isRunning)
+            else if (isRunning && notAbleToWalk == false)
             {
                 timer -= (Time.deltaTime * RunningDecayMultiplier);
             }
@@ -55,5 +59,11 @@ public class LightTimer : MonoBehaviour
     public void ResetLightTimer()
     {
         timer = startTimer;
+    }
+
+    void OnDrawGizmosSelected ()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(wallCheckTransform.position,0.15f);
     }
 }
