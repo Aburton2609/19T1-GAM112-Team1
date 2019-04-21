@@ -26,11 +26,11 @@ public class PlayerMovement : MonoBehaviour
         Flip(horizontalInput);
         playerRB.AddForce(new Vector2(horizontalInput * horizontalForce * Time.deltaTime, playerRB.velocity.y));
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && playerJump.grounded == true)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && playerJump.grounded == true)
         {
             isRunning = true;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
         {
             isRunning = false;
         }

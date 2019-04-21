@@ -33,7 +33,7 @@ public class AnimatorInputLogic : MonoBehaviour
         horizontalInput = Mathf.Abs(horizontalInput);
         playerAnim.SetFloat("horizontalInput", horizontalInput);
 
-        bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
+        bool isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         playerAnim.SetBool("isSprinting", isShiftPressed);
 
         playerAnim.SetBool("isJumping", !playerJump.grounded);

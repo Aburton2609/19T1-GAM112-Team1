@@ -26,7 +26,7 @@ public class LightTimer : MonoBehaviour
         gameObject.transform.localScale = new Vector3(timer * startingSpriteSizeMultipliedByTimer, timer * startingSpriteSizeMultipliedByTimer, 0);
         bool isWalkingLeft = Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftArrow);
         bool isWalkingRight = Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.RightArrow);
-        bool isRunning = (Input.GetKey(KeyCode.LeftShift) && (isWalkingLeft || isWalkingRight));
+        bool isRunning = ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && (isWalkingLeft || isWalkingRight));
 
         if (inSafeArea == false)
         {
