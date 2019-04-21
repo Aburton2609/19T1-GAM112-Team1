@@ -5,6 +5,7 @@ using UnityEngine;
 public class RemoveBoulderRBLogic : MonoBehaviour
 {
     GameOverLogic gameOverLogic;
+    public int objectsToDestroy = 0;
 
     void Start ()
     {
@@ -15,6 +16,11 @@ public class RemoveBoulderRBLogic : MonoBehaviour
         if (collision2D.gameObject.tag == "Player" && gameObject.GetComponent<Rigidbody2D>())
         {
             gameOverLogic.RestartLevel();
+        }
+        else if (collision2D.gameObject.tag == "Platform" && objectsToDestroy > 0)
+        {
+            Destroy(collision2D.gameObject);
+            objectsToDestroy--;
         }
         else
         {
