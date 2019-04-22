@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SafeAreaLogic : MonoBehaviour
 {
     LightTimer lightTimer;
-
+    public Canvas dialogueCanvas;
     void Start ()
     {
         lightTimer = GameObject.FindGameObjectWithTag("Light").GetComponent<LightTimer>();
@@ -16,6 +14,7 @@ public class SafeAreaLogic : MonoBehaviour
         if (collider2D.gameObject.tag == "Player")
         {
             lightTimer.ChangeSafeAreaBoolean(true);
+            dialogueCanvas.gameObject.SetActive(true);
         }
     }
 
@@ -23,6 +22,7 @@ public class SafeAreaLogic : MonoBehaviour
     {
         if (collider2D.gameObject.tag == "Player")
         {
+            dialogueCanvas.gameObject.SetActive(false);
             lightTimer.ChangeSafeAreaBoolean(false);
             lightTimer.ResetLightTimer();
         }
