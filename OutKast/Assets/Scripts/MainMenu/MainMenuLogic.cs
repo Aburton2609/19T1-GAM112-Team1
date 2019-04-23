@@ -45,7 +45,7 @@ public class MainMenuLogic : MonoBehaviour
             levelSelectionsButtons[0].GetComponent<Image>().color = Color.white;
             levelSelectionsButtons[1].GetComponent<Image>().color = Color.grey;
             levelSelectionsButtons[2].GetComponent<Image>().color = Color.grey;
-        }        
+        }
     }
 
     public void PlayGame ()
@@ -64,7 +64,7 @@ public class MainMenuLogic : MonoBehaviour
         if (PlayerPrefs.GetString("LevelOneCompletionStatus") == "Complete")
         {
             StartCoroutine(LoadLevel(2));
-        }             
+        }
     }
 
     public void LoadLevelThree()
@@ -83,7 +83,7 @@ public class MainMenuLogic : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();            
+        Application.Quit();
     }
 
     IEnumerator LoadLevel (int levelNumber)
