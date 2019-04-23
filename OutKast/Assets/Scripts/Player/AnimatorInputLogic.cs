@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AnimatorInputLogic : MonoBehaviour
 {
@@ -20,7 +18,7 @@ public class AnimatorInputLogic : MonoBehaviour
 
     void Update()
     {
-        isAbleToWalk = Physics2D.OverlapCircle(wallCheckTransform.position,0.15f,whatIsGround);
+        isAbleToWalk = Physics2D.OverlapCircle(wallCheckTransform.position, 0.15f, whatIsGround);
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         if (isAbleToWalk && horizontalInput > 0 && transform.localScale.x > 0)
         {
@@ -37,5 +35,5 @@ public class AnimatorInputLogic : MonoBehaviour
         playerAnim.SetBool("isSprinting", isShiftPressed);
 
         playerAnim.SetBool("isJumping", !playerJump.grounded);
-    }
+    }         
 }
