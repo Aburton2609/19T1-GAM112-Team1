@@ -31,6 +31,16 @@ public class SoundManager : MonoBehaviour
 			case "LevelThree":
 				ChooseTrack(3);
 				break;
+			// TODO: Remove and rename accordingly for production build
+			case "LevelOneDraft":
+				ChooseTrack(1);
+				break;
+			case "LevelTwoDraft":
+				ChooseTrack(2);
+				break;
+			case "LevelThreeDraft":
+				ChooseTrack(3);
+				break;
 		}
 
 		source.Play();
@@ -55,6 +65,9 @@ public class SoundManager : MonoBehaviour
 				source.clip = backgroundTracks[choice];
 				break;
 			case 4:
+				source.clip = backgroundTracks[choice];
+				break;
+			case 5:
 				source.clip = backgroundTracks[choice];
 				break;
 		}
