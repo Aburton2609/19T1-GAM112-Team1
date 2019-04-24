@@ -7,10 +7,12 @@ public class BoulderLogic : MonoBehaviour
     public float timeDelay = 0.5f;
     public float shakeAmount = 0.1f;
     Vector3 originalPosition;
+    private AudioSource source;
 
     void Start ()
     {
         originalPosition = boulder.transform.position;
+        source = GetComponent<AudioSource>();
     }
 
 
@@ -24,8 +26,9 @@ public class BoulderLogic : MonoBehaviour
 
     IEnumerator DelayBoulderFalling ()
     {
-        InvokeRepeating("BeginShake", 0, 0.01f);        
+        InvokeRepeating("BeginShake", 0, 0.01f);
         yield return new WaitForSeconds(timeDelay);
+        source.Play(0);
         boulder.AddComponent<Rigidbody2D>();
         Invoke("StopShake",0);
         gameObject.SetActive(false);
@@ -35,7 +38,7 @@ public class BoulderLogic : MonoBehaviour
     {
         if (shakeAmount > 0)
         {
-            
+
             Vector3 newPosition = boulder.transform.position;
             float shakeAmountX = Random.value * shakeAmount * 2 - shakeAmount;
             float shakeAmountY = Random.value * shakeAmount * 2 - shakeAmount;
