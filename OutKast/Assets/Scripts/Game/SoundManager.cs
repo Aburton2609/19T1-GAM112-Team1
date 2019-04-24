@@ -1,25 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
-{
+{    
 	public AudioClip[] backgroundTracks;
-	private AudioSource source;
+	public AudioSource musicSource;
+    public AudioSource sfxSource;
 	private string sceneName;
-	static private SoundManager instance;
+    static public SoundManager instance = null;
+
+    void Awake ()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this);
+        }
+    }
 
 	void Start()
 	{
 		sceneName = SceneManager.GetActiveScene().name;
-		source = GetComponent<AudioSource>();
 
 		switch (sceneName)
-		{
-			case "PrototypeScene":
-				ChooseTrack(0);
-				break;
+		{			
 			case "MainMenu":
 				ChooseTrack(0);
 				break;
@@ -44,32 +51,38 @@ public class SoundManager : MonoBehaviour
 				break;
 		}
 
-		source.Play();
+		musicSource.Play();
 	}
 
 	public void ChooseTrack(int choice)
 	{
-		source.Stop();
+		musicSource.Stop();
 
 		switch (choice)
 		{
 			case 0:
-				source.clip = backgroundTracks[choice];
+				musicSource.clip = backgroundTracks[choice];
 				break;
 			case 1:
-				source.clip = backgroundTracks[choice];
+				musicSource.clip = backgroundTracks[choice];
 				break;
 			case 2:
-				source.clip = backgroundTracks[choice];
+				musicSource.clip = backgroundTracks[choice];
 				break;
 			case 3:
-				source.clip = backgroundTracks[choice];
+				musicSource.clip = backgroundTracks[choice];
 				break;
 			case 4:
-				source.clip = backgroundTracks[choice];
+				musicSource.clip = backgroundTracks[choice];
 				break;
 		}
 
-		source.Play();
+		musicSource.Play();
 	}
+
+    public void PlaySFX(AudioClip sfx)
+    {
+        sfxSource.clip = sfx;
+        sfxSource.Play();
+    }
 }

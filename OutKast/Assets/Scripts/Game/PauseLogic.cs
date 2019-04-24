@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseLogic : MonoBehaviour
 {
     public Canvas pauseCanvas;
     public string sceneName;
+    public AudioClip buttonClickSFX;
     bool isPaused;
     void Start()
     {
@@ -27,13 +26,11 @@ public class PauseLogic : MonoBehaviour
     }
 
     void PauseGame ()
-    {
-        if (isPaused == false && Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0;
-            pauseCanvas.gameObject.SetActive(true);
-            isPaused = true;
-        }
+    {        
+        Time.timeScale = 0;
+        pauseCanvas.gameObject.SetActive(true);
+        isPaused = true;
+        SoundManager.instance.PlaySFX(buttonClickSFX);
     }
 
     public void ResumeGame ()
@@ -41,10 +38,12 @@ public class PauseLogic : MonoBehaviour
         Time.timeScale = 1;
         pauseCanvas.gameObject.SetActive(false);
         isPaused = false;
+        SoundManager.instance.PlaySFX(buttonClickSFX);
     }
 
     public void ReturnToMainMenu ()
     {
+        SoundManager.instance.PlaySFX(buttonClickSFX);
         SceneManager.LoadScene(sceneName);
     }
 }

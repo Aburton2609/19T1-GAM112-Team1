@@ -74,6 +74,7 @@ MonoBehaviour:
   boulder: {fileID: 0}
   timeDelay: 0.5
   shakeAmount: 0.1
+  boulderSFX: {fileID: 8300000, guid: 6e3a7ea7f99f2d945ac3e50c6985d6a7, type: 3}
 --- !u!82 &6013646799847553933
 AudioSource:
   m_ObjectHideFlags: 0

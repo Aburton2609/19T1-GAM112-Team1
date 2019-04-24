@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class KeyPickUpLogic : MonoBehaviour
 {
 	Image keysHoldingUI;
+    public AudioClip pickupSFX;
+    public AudioClip unlockDoorSFX;
 
 	private void Start()
 	{
@@ -16,12 +18,14 @@ public class KeyPickUpLogic : MonoBehaviour
 		if (collider2D.gameObject.tag == "Key")
 		{
 			keysHoldingUI.fillAmount += 0.25f;
+            SoundManager.instance.PlaySFX(pickupSFX);
 			collider2D.gameObject.SetActive(false);
 		}
 	}
 
 	public void UseKey()
 	{
-		keysHoldingUI.fillAmount -= 0.25f;
+        keysHoldingUI.fillAmount -= 0.25f;
+        SoundManager.instance.PlaySFX(unlockDoorSFX);
 	}
 }

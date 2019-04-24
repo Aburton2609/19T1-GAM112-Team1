@@ -7,12 +7,11 @@ public class BoulderLogic : MonoBehaviour
     public float timeDelay = 0.5f;
     public float shakeAmount = 0.1f;
     Vector3 originalPosition;
-    private AudioSource source;
+    public AudioClip boulderSFX;
 
     void Start ()
     {
         originalPosition = boulder.transform.position;
-        source = GetComponent<AudioSource>();
     }
 
 
@@ -28,7 +27,7 @@ public class BoulderLogic : MonoBehaviour
     {
         InvokeRepeating("BeginShake", 0, 0.01f);
         yield return new WaitForSeconds(timeDelay);
-        source.Play(0);
+        SoundManager.instance.PlaySFX(boulderSFX);
         boulder.AddComponent<Rigidbody2D>();
         Invoke("StopShake",0);
         gameObject.SetActive(false);

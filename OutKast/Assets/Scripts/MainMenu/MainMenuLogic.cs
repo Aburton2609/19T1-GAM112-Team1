@@ -13,6 +13,7 @@ public class MainMenuLogic : MonoBehaviour
     public Canvas loadingScreenCanvas;
     public Text loadingText;
     public Image loadingBar;
+    public AudioClip buttonClickSFX;
 
     private void Start()
     {
@@ -50,12 +51,14 @@ public class MainMenuLogic : MonoBehaviour
 
     public void PlayGame ()
     {
+        SoundManager.instance.PlaySFX(buttonClickSFX);
         playQuitCanvas.gameObject.SetActive(false);
         levelSelectionCanvas.gameObject.SetActive(true);
     }
 
     public void LoadLevelOne()
     {
+        SoundManager.instance.PlaySFX(buttonClickSFX);
         StartCoroutine(LoadLevel(1));
     }
 
@@ -63,6 +66,7 @@ public class MainMenuLogic : MonoBehaviour
     {
         if (PlayerPrefs.GetString("LevelOneCompletionStatus") == "Complete")
         {
+            SoundManager.instance.PlaySFX(buttonClickSFX);
             StartCoroutine(LoadLevel(2));
         }             
     }
@@ -71,18 +75,21 @@ public class MainMenuLogic : MonoBehaviour
     {
         if (PlayerPrefs.GetString("LevelTwoCompletionStatus") == "Complete")
         {
+            SoundManager.instance.PlaySFX(buttonClickSFX);
             StartCoroutine(LoadLevel(3));
         }
     }
 
     public void Return ()
     {
+        SoundManager.instance.PlaySFX(buttonClickSFX);
         playQuitCanvas.gameObject.SetActive(true);
         levelSelectionCanvas.gameObject.SetActive(false);
     }
 
     public void QuitGame()
     {
+        SoundManager.instance.PlaySFX(buttonClickSFX);
         Application.Quit();            
     }
 

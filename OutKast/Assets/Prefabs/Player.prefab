@@ -521,6 +521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3099260db8e69cf49999afcdc20a2ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 8300000, guid: f2c0043d03aec944bb66fce41837240b, type: 3}
+  unlockDoorSFX: {fileID: 8300000, guid: f8ac58951aa157a448921cc476cfdb1d, type: 3}
 --- !u!82 &4006204545853647757
 AudioSource:
   m_ObjectHideFlags: 0
