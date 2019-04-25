@@ -14,7 +14,7 @@ public class OrbsOfLight : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SoundManager.instance.PlaySFX(pickupSound);
+            SoundManager.instance.PlayOrbSFX(pickupSound);
             lightTimer.AddToTimer(timeAdded);
             gameObject.SetActive(false);
         }

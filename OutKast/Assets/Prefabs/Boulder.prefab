@@ -218,4 +218,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToDestroy: 0
   hurtSFX: {fileID: 8300000, guid: 35e9a55ac7244d04da97430568ad8466, type: 3}
-  collisionSFX: {fileID: 8300000, guid: a32b017712aad7a409946e278494c178, type: 3}
+  collisionSFX: {fileID: 8300000, guid: 5e3807fcba3c95f47a3346e3e95a3010, type: 3}

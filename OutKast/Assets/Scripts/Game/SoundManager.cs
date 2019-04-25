@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 	public AudioClip[] backgroundTracks;
 	public AudioSource musicSource;
     public AudioSource sfxSource;
+    public AudioSource orbSfxSource;
 	private string sceneName;
     static public SoundManager instance = null;
 
@@ -84,5 +85,10 @@ public class SoundManager : MonoBehaviour
     {
         sfxSource.clip = sfx;
         sfxSource.Play();
+    }
+    public void PlayOrbSFX(AudioClip sfx)
+    {
+        orbSfxSource.clip = sfx;
+        orbSfxSource.Play();
     }
 }
