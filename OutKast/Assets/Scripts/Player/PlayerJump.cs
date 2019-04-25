@@ -15,6 +15,8 @@ public class PlayerJump : MonoBehaviour
 	public float timeBtwJump = 0.3f;
 	float timer = 0;
 	private AudioSource source;
+    public AudioClip jumpingSound;
+    public AudioClip landingSound;
 
 	void Start()
 	{
@@ -25,8 +27,7 @@ public class PlayerJump : MonoBehaviour
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space) && jumpsRemaining > 0)
-		{
-			source.Play(0);
+		{            
 			hasJumped = true;
 		}
 	}
@@ -65,6 +66,17 @@ public class PlayerJump : MonoBehaviour
 
 	void Jump()
 	{
-		playerRB.velocity = new Vector2(playerRB.velocity.x, jumpingSpeed);
+        playerRB.velocity = new Vector2(playerRB.velocity.x, jumpingSpeed);
+        source.clip = jumpingSound;
+        source.Play();
 	}
+
+    void OnCollisionEnter2D (Collision2D collision2D)
+    {
+        if (grounded)
+        {
+            source.clip = landingSound;
+            source.Play();
+        }
+    }
 }

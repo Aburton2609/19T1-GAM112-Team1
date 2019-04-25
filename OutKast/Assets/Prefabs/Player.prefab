@@ -458,6 +458,8 @@ MonoBehaviour:
   jumpsRemaining: 1
   jumpingSpeed: 6
   timeBtwJump: 0.5
+  jumpingSound: {fileID: 8300000, guid: 005e2f6d80d3209429309b402c54d5e4, type: 3}
+  landingSound: {fileID: 8300000, guid: 9c0137a1ea8622f4496ce01c2bfe38b7, type: 3}
 --- !u!70 &3384423308397285033
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -522,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSFX: {fileID: 8300000, guid: f2c0043d03aec944bb66fce41837240b, type: 3}
-  unlockDoorSFX: {fileID: 8300000, guid: f8ac58951aa157a448921cc476cfdb1d, type: 3}
+  unlockDoorSFX: {fileID: 8300000, guid: df17649164c915d45a5521bd974bd866, type: 3}
 --- !u!82 &4006204545853647757
 AudioSource:
   m_ObjectHideFlags: 0
@@ -533,7 +535,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 005e2f6d80d3209429309b402c54d5e4, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.8
   m_Pitch: 0.9
