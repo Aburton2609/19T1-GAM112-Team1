@@ -11,6 +11,7 @@ public class SafeAreaLogic : MonoBehaviour
     public float typingSpeed = 0.03f;
     int index;
     bool sentenceHasFinished;
+    bool dialogueHasStarted;
     public Image ArrowImage;
 
 
@@ -24,6 +25,7 @@ public class SafeAreaLogic : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             StartCoroutine("Type");
+            dialogueCanvas.gameObject.SetActive(true);
         }
     }
 
@@ -32,15 +34,19 @@ public class SafeAreaLogic : MonoBehaviour
         if (collider2D.gameObject.tag == "Player")
         {
             lightTimer.ChangeSafeAreaBoolean(true);
-            dialogueCanvas.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.Return) && dialogueHasStarted == false)
+            {
+                dialogueCanvas.gameObject.SetActive(true);
+                StartCoroutine("Type");
+            }            
         }
     }
 
     void OnTriggerExit2D (Collider2D collider2D)
     {
         if (collider2D.gameObject.tag == "Player")
-        {
-            dialogueCanvas.gameObject.SetActive(false);
+        {            
             lightTimer.ChangeSafeAreaBoolean(false);
             lightTimer.ResetLightTimer();
             ResetText();
@@ -50,6 +56,7 @@ public class SafeAreaLogic : MonoBehaviour
 
     IEnumerator Type()
     {
+        dialogueHasStarted = true;
         foreach (char letter in sentences[index].ToCharArray())
         {
             textDisplay.text += letter;
@@ -90,6 +97,8 @@ public class SafeAreaLogic : MonoBehaviour
 
     void ResetText()
     {
+        dialogueHasStarted = false;
+        dialogueCanvas.gameObject.SetActive(false);
         StopCoroutine("Type");
         textDisplay.text = "";
         index = 0;
